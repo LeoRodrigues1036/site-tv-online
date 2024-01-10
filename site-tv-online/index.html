@@ -4,12 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-adsense-account" content="ca-pub-8451038012787027">
     <title>Site TV Online</title>
     <link rel="stylesheet" href="style.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8451038012787027"crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -25,17 +23,20 @@
     <main>
 
 
-        <iframe src="" id="videoPlay" controls></iframe>
+
+        <iframe style="overflow: hidden;" src="" id="videoPlay" controls></iframe>
 
         <div id="controls">
             <ion-icon id="expandir" name="expand-outline"></ion-icon>
         </div>
+
 
         <H2>Canais TV Grátis - TV Online</H2>
 
         <ul id="minha-ul">
 
         </ul>
+
 
     </main>
 
@@ -353,6 +354,19 @@
 
         // Adicione um ouvinte de evento ao botão de expandir
         document.getElementById('expandir').addEventListener('click', toggleFullscreen);
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            ajustarTamanhoIframe();
+
+            window.addEventListener('resize', () => {
+                ajustarTamanhoIframe();
+            });
+        });
+
+        function ajustarTamanhoIframe() {
+            const meuIframe = document.getElementById('videoPlay');
+            videoPlay.style.height = (window.innerHeight / 2) + 'px';
+        }
 
 
     </script>
