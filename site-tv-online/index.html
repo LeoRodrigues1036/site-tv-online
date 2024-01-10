@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site TV Online</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <header>
+
+        <ion-icon name="tv-outline"></ion-icon>
+
+        <h1>TV online Grátis</h1>
+
+    </header>
+
+    <main>
+
+        <div id="anucio">
+            anucio
+        </div>
+
+
+        <iframe src="" id="videoPlay" controls></iframe>
+
+        <div id="controls">
+            <ion-icon id="expandir" name="expand-outline"></ion-icon>
+        </div>
+
+        <div id="anucio">
+            anucio
+        </div>
+
+        <H2>Canais TV Grátis - TV Online</H2>
+
+        <ul id="minha-ul">
+
+        </ul>
+
+        <div id="anucio">
+            anucio
+        </div>
+
+    </main>
+
+    <script>
+
+        const videos = [
+            {
+                src: 'https://playertv.net/tv.php?c=sbt',
+                tituloCanal: 'Sbt'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=bobosp',
+                tituloCanal: 'Canal Globo SP'
+            },
+            {
+                src: 'https://embedflix.net/tv/globo-sp',
+                tituloCanal: 'Globo SP'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=globo-sp',
+                tituloCanal: 'Globo SP'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=globosp-globosaopaulo',
+                tituloCanal: 'Globo SP'
+            },
+            {
+                src: 'https://d.daddylivehd.sx/embed/stream-760.php',
+                tituloCanal: 'Canal 760'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=boborj',
+                tituloCanal: 'Canal Bobo RJ'
+            },
+            {
+                src: 'https://embedflix.net/tv/globo-rio',
+                tituloCanal: 'Globo RJ'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=globo-rj',
+                tituloCanal: 'Globo RJ'
+            },
+            {
+                src: 'https://d.daddylivehd.sx/embed/stream-761.php',
+                tituloCanal: 'Canal 761'
+            },
+            {
+                src: 'https://embedflix.net/tv/globo-minas',
+                tituloCanal: 'Globo Minas'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=globo-mg',
+                tituloCanal: 'Globo MG'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=globomg-globominas',
+                tituloCanal: 'Globo MG'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=globomg-tvintegracaouberaba',
+                tituloCanal: 'Globo MG'
+            },
+            {
+                src: 'https://supertvaovivo.tv/canaistv/cinemax.php',
+                tituloCanal: 'Cinemax'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=cinemax',
+                tituloCanal: 'Cinemax'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=cinemax',
+                tituloCanal: 'Cinemax'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=cinemax',
+                tituloCanal: 'Cinemax'
+            },
+            {
+                src: 'https://supertvaovivo.tv/canaistv/star_channel.php',
+                tituloCanal: 'Star Channel'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=starchannel',
+                tituloCanal: 'Star Channel'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=starchannel',
+                tituloCanal: 'Star Channel'
+            },
+            {
+                src: 'https://embedflix.net/tv/star-channel-hd',
+                tituloCanal: 'Star Channel'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=star',
+                tituloCanal: 'Star Channel'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=megapix',
+                tituloCanal: 'Megapix'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=megapix',
+                tituloCanal: 'Megapix'
+            },
+            {
+                src: 'https://embedflix.net/tv/megapix',
+                tituloCanal: 'Megapix'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=megapix',
+                tituloCanal: 'Megapix'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=hbosignature',
+                tituloCanal: 'HBO Signature'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=hbosignature',
+                tituloCanal: 'HBO Signature'
+            },
+            {
+                src: 'https://embedflix.net/tv/hbo-signature',
+                tituloCanal: 'HBO Signature'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=hbo-signature',
+                tituloCanal: 'HBO Signature'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=hbopop',
+                tituloCanal: 'HBO Pop'
+            },
+            {
+                src: 'https://embedflix.net/tv/hbo-pop',
+                tituloCanal: 'HBO Pop'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=hbo-pop',
+                tituloCanal: 'HBO Pop'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=hboxtreme',
+                tituloCanal: 'HBO Xtreme'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=hboxtreme',
+                tituloCanal: 'HBO Xtreme'
+            },
+            {
+                src: 'https://embedflix.net/tv/hbo-xtreme',
+                tituloCanal: 'HBO Xtreme'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=hbo-xtreme',
+                tituloCanal: 'HBO Xtreme'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=hbo2',
+                tituloCanal: 'HBO 2'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=hbo2',
+                tituloCanal: 'HBO 2'
+            },
+            {
+                src: 'https://embedflix.net/tv/hbo-2',
+                tituloCanal: 'HBO 2'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=hbo2',
+                tituloCanal: 'HBO 2'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=fx',
+                tituloCanal: 'FX'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=fx',
+                tituloCanal: 'FX'
+            },
+            {
+                src: 'https://embedflix.net/tv/fx-hd',
+                tituloCanal: 'FX HD'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=fx',
+                tituloCanal: 'FX'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=nickjr',
+                tituloCanal: 'Nick Jr.'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=nickjr',
+                tituloCanal: 'Nick Jr.'
+            },
+            {
+                src: 'https://embedflix.net/tv/nick-jr',
+                tituloCanal: 'Nick Jr.'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=nick-jr',
+                tituloCanal: 'Nick Jr.'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=nick',
+                tituloCanal: 'Nickelodeon'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=nickelodeon',
+                tituloCanal: 'Nickelodeon'
+            },
+            {
+                src: 'https://embedflix.net/tv/nickelodeon',
+                tituloCanal: 'Nickelodeon'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=nick',
+                tituloCanal: 'Nickelodeon'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=gloob',
+                tituloCanal: 'Gloob'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=gloob',
+                tituloCanal: 'Gloob'
+            },
+            {
+                src: 'https://embedflix.net/tv/gloob',
+                tituloCanal: 'Gloob'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=gloob',
+                tituloCanal: 'Gloob'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=disney',
+                tituloCanal: 'Disney Channel'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=disneychannel',
+                tituloCanal: 'Disney Channel'
+            },
+            {
+                src: 'https://embedflix.net/tv/disney-channel',
+                tituloCanal: 'Disney Channel'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=disney',
+                tituloCanal: 'Disney Channel'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=paramount',
+                tituloCanal: 'Paramount Network'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=paramountnetwork',
+                tituloCanal: 'Paramount Network'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=paramount',
+                tituloCanal: 'Paramount Network'
+            },
+            {
+                src: 'https://sinalpublico.com/player3/ch.php?canal=aie',
+                tituloCanal: 'AIE'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=aee',
+                tituloCanal: 'AEE'
+            },
+            {
+                src: 'https://playertv.net/tv.php?c=ae',
+                tituloCanal: 'AE'
+            },
+            {
+                src: 'https://reidoscanais.com/embed/?id=aee',
+                tituloCanal: 'AEE'
+            }
+        ];
+
+        const selectUl = document.getElementById('minha-ul');
+        const videoPlay = document.getElementById('videoPlay');
+        const selectControls = document.getElementById('controls');
+
+        videos.forEach(video => {
+            const novoLi = document.createElement('li');
+            novoLi.innerHTML = `
+                <button onclick="changeVideo('${video.src}')">${video.tituloCanal}</button>
+            `;
+            selectUl.appendChild(novoLi);
+        });
+
+        function changeVideo(videoSrc) {
+            videoPlay.src = videoSrc;
+            videoPlay.style.display='flex'
+            selectControls.style.display='flex'
+
+        }
+
+        function toggleFullscreen() {
+            if (videoPlay.requestFullscreen) {
+                videoPlay.requestFullscreen();
+            } else if (videoPlay.mozRequestFullScreen) {
+                videoPlay.mozRequestFullScreen();
+            } else if (videoPlay.webkitRequestFullscreen) {
+                videoPlay.webkitRequestFullscreen();
+            } else if (videoPlay.msRequestFullscreen) {
+                videoPlay.msRequestFullscreen();
+            }
+        }
+
+        // Adicione um ouvinte de evento ao botão de expandir
+        document.getElementById('expandir').addEventListener('click', toggleFullscreen);
+
+
+    </script>
+
+</body>
+
+</html>
+</script>
+
+</body>
+
+</html>
